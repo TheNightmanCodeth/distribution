@@ -1,0 +1,32 @@
+diff --git a/externals/sse2neon/sse2neon.h b/externals/sse2neon/sse2neon.h
+index 66b93c1..7ed7d06 100755
+--- a/externals/sse2neon/sse2neon.h
++++ b/externals/sse2neon/sse2neon.h
+@@ -1,6 +1,9 @@
+ // SPDX-FileCopyrightText: Copyright 2015-2024 SSE2NEON Contributors
+ // SPDX-License-Identifier: MIT
+ 
++#pragma GCC diagnostic ignored "-Wconversion"
++#pragma GCC diagnostic ignored "-Wshadow"
++
+ #ifndef SSE2NEON_H
+ #define SSE2NEON_H
+ 
+@@ -8466,7 +8469,7 @@ FORCE_INLINE uint32_t _mm_crc32_u32(uint32_t crc, uint32_t v)
+     crc = __crc32cw(crc, v);
+ #else
+     crc = _mm_crc32_u16(crc, v & 0xffff);
+-    crc = _mm_crc32_u16(crc, (v >> 16) & 0xffff);
++    crc = _mm_crc32_u16(crc, static_cast<uint16_t>((v >> 16)) & 0xffff);
+ #endif
+     return crc;
+ }
+@@ -8484,7 +8487,7 @@ FORCE_INLINE uint64_t _mm_crc32_u64(uint64_t crc, uint64_t v)
+     crc = __crc32cd((uint32_t) crc, v);
+ #else
+     crc = _mm_crc32_u32((uint32_t) (crc), v & 0xffffffff);
+-    crc = _mm_crc32_u32((uint32_t) (crc), (v >> 32) & 0xffffffff);
++    crc = _mm_crc32_u32((uint32_t) (crc), static_cast<uint16_t>((v >> 32)) & 0xffffffff);
+ #endif
+     return crc;
+ }
