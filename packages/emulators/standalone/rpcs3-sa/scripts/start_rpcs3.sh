@@ -7,8 +7,7 @@
 
 # Check if rpcs3 exists in .config
 if [ ! -d "/storage/.config/rpcs3" ]; then
-  mkdir -p "/storage/.config/rpcs3"
-  cp -r "/usr/config/rpcs3" "/storage/.config/rpcs3"
+  cp -r "/usr/config/rpcs3" "/storage/.config/"
 fi
 
 # Link certain RPCS3 folders to a location in /storage/roms/bios
@@ -180,6 +179,11 @@ if [[ "${1}" == *.psn ]]; then
   # Hardcoded now for testing
   read -r PSNID < "${1}"
   GAME_PATH="/storage/.config/rpcs3/dev_hdd0/game/${PSNID}/USRDIR/EBOOT.BIN"
+elif [[ "${1}" == *.m3u ]]; then
+  #check if path is M3U
+  read -r M3UPATH < "${1}"
+  echo ${M3UPATH}
+  GAME_PATH="/roms/ps3/${M3UPATH}"
 else
   GAME_PATH="${1}"
 fi

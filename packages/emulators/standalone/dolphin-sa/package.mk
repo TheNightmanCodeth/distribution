@@ -19,7 +19,7 @@ case ${DEVICE} in
                              -DENABLE_HEADLESS=ON"
   ;;
   *)
-    PKG_VERSION="f9ce2b9d764014ab59cf2c19e49c2c848604e6fc"
+    PKG_VERSION="9b3b6bea9d088c52cfaa455bb8f2702d13f6002d"
     PKG_SITE="https://github.com/dolphin-emu/dolphin"
     PKG_URL="${PKG_SITE}.git"
     PKG_DEPENDS_TARGET+=" qt6"
