@@ -1,0 +1,13 @@
+diff --git a/src/input_common/helpers/udp_protocol.h b/src/input_common/helpers/udp_protocol.h
+index dba9f87d9..bf4124213 100644
+--- a/src/input_common/helpers/udp_protocol.h
++++ b/src/input_common/helpers/udp_protocol.h
+@@ -3,6 +3,8 @@
+ 
+ #pragma once
+ 
++#pragma GCC diagnostic ignored "-Wconversion"
++
+ #include <array>
+ #include <optional>
+ #include <type_traits>

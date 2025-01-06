@@ -1,0 +1,20 @@
+diff --git a/src/yuzu_cmd/CMakeLists.txt b/src/yuzu_cmd/CMakeLists.txt
+index 284b86304..2e928a712 100644
+--- a/src/yuzu_cmd/CMakeLists.txt
++++ b/src/yuzu_cmd/CMakeLists.txt
+@@ -29,7 +29,7 @@ if (YUZU_CMD)
+         yuzu.rc
+     )
+ 
+-    target_link_libraries(yuzu-cmd PRIVATE common core input_common frontend_common)
++    target_link_libraries(yuzu-cmd PRIVATE Boost::context common core input_common frontend_common)
+     target_link_libraries(yuzu-cmd PRIVATE glad)
+     if (MSVC)
+         target_link_libraries(yuzu-cmd PRIVATE getopt)
+@@ -64,4 +64,4 @@ if (YUZU_CMD)
+     endif()
+ 
+     create_target_directory_groups(yuzu-cmd)
+-endif()
+\ No newline at end of file
++endif()
